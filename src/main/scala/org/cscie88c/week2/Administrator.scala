@@ -7,6 +7,12 @@ class Administrator(
     budget: Long
 ) extends UniversityEmployee(name, email) {
   override def description: String =
-    s"Type: Faculty, Name: ${name}, Email: ${email}, Budget: ${budget}"
+    s"Name: ${name}, Email: ${email}, Budget: $$${budget}"
+
+}
+
+object Administrator {
+  def apply(name: String, email: String, budget: Long): Administrator =
+    new Administrator(name, email, budget)
 
 }

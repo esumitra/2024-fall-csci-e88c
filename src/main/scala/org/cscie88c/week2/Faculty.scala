@@ -7,6 +7,12 @@ class Faculty(
     courseId: String
 ) extends UniversityEmployee(name, email) {
   override def description: String =
-    s"Type: Faculty, Name: ${name}, Email: ${email}, CourseId: ${courseId}"
+    s"Name: ${name}, Email: ${email}, CourseId: ${courseId}"
+
+}
+
+object Faculty {
+  def apply(name: String, email: String, courseId: String): Faculty =
+    new Faculty(name, email, courseId)
 
 }
