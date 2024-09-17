@@ -23,10 +23,28 @@ object Student {
     )
 
   }
-  val allStudents: List[Student] = ???
+  val allStudents: List[Student] = List(
+    Student("1,Emmy,Conrart,econrart0@gizmodo.com,Male,China"),
+    Student("2,Marin,Blasoni,mblasoni1@edublogs.org,Female,United States"),
+    Student("3,Jesse,Chismon,jchismon2@hostgator.com,Male,China"),
+    Student("4,Delmore,Scriver,dscriver3@boston.com,Male,United States"),
+    Student("5,Jocelyn,Blaxlande,jblaxlande4@europa.eu,Female,China")
+  )
 
-  def studentNamesByCountry(country: String): List[String] = ???
+  def studentNamesByCountry(country: String): List[String] = {
+    allStudents
+      .filter(_.country.equals(country))
+      .map(values => s"${values.firstName} ${values.lastName}")
 
-  def studentTotalsByCountry(country: String): Int = ???
+    // .map(values())
+    // transactions.filter(_.transactionAmount > 100)
+    //// val total = transactions.map(_.transactionAmount).sum
+    //// total / transactions.length
+  }
+
+  def studentTotalsByCountry(country: String): Int = {
+    allStudents.count(_.country.equals(country))
+
+  }
 
 }
