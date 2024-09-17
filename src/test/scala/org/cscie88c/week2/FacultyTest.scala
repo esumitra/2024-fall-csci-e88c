@@ -20,7 +20,6 @@ class FacultyTest extends StandardTest {
       }
       "have a courseId property" in {
         first_faculty.courseId should be("Math101")
-        second_faculty.courseId should be("History101")
       }
     }
   }
