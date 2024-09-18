@@ -2,7 +2,8 @@ import sbt._
 
 object Dependencies {
   lazy val scalaTest = Seq(
-    "org.scalatest" %% "scalatest" % "3.2.13" % Test
+    "org.scalatest" %% "scalatest" % "3.2.13" % Test,
+    "org.scalatestplus" %% "scalacheck-1-18" % "3.2.19.0" % Test
   )
 
   val circeVersion = "0.13.0"
