@@ -18,7 +18,7 @@ object FutureUtils {
 
   def futureFactorial(n: Int): Future[Int] = ???
 
-  def futurePermuations(n: Int, r: Int): Future[Int] = ???
+  def futurePermutations(n: Int, r: Int): Future[Int] = ???
 
   def asyncAverageCreditScore(idList: List[Int]): Future[Double] = ???
 
