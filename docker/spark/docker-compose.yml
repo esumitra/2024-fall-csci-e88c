@@ -1,0 +1,39 @@
+version: "3.3"
+services:
+  spark-master:
+    image: esumitra/cluster-apache-spark:3.2.1
+    ports:
+      - "8080:8080"
+      - "7077:7077"
+      - "4040:4040"
+    volumes:
+       - ./apps:/opt/spark-apps
+       - ./data:/opt/spark-data
+    environment:
+      - SPARK_LOCAL_IP=spark-master
+      - SPARK_WORKLOAD=master
+
+  spark-worker:
+    image: esumitra/cluster-apache-spark:3.2.1
+    depends_on:
+      - spark-master
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+      - SPARK_WORKER_CORES=1
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_DRIVER_MEMORY=1G
+      - SPARK_EXECUTOR_MEMORY=1G
+      - SPARK_WORKLOAD=worker
+      - SPARK_LOCAL_IP=spark-worker
+    volumes:
+       - ./apps:/opt/spark-apps
+       - ./data:/opt/spark-data
+
+  # optionally use the Postgres database for projects
+  # demo-database:
+  #   image: postgres:11.7-alpine
+  #   ports: 
+  #     - "5432:5432"
+  #   environment: 
+  #     - POSTGRES_PASSWORD=casa1234
+
