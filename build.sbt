@@ -16,6 +16,8 @@ lazy val root = (project in file(".")).
       "-language:higherKinds", // HKT required for Monads and other HKT types
       "-Wunused", // for scalafix
     ),
+    Compile / run / fork := true, // cleaner to run programs in a JVM different from sbt
+    run / javaOptions += "--add-exports=java.base/sun.nio.ch=ALL-UNNAMED", // needed to run Spark with Java 17
     libraryDependencies ++= Dependencies.core ++ Dependencies.scalaTest,
     assembly / mainClass := Some("org.cscie88c.MainApp"),
     assembly / assemblyJarName := "2024FallScalaBigData.jar",
