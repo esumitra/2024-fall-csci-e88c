@@ -10,6 +10,8 @@ object Dependencies {
   val pureconfigVersion = "0.15.0"
   val catsVersion = "2.2.0"
   val sparkVersion = "3.2.1"
+  val beamVersion = "2.57.0"
+  val scioVersion = "0.14.1"
 
   lazy val core = Seq(
     // cats FP libary
@@ -34,5 +36,12 @@ object Dependencies {
     // spark
     // "org.apache.spark" %% "spark-sql" % sparkVersion % Provided, // for submiting spark app as a job to cluster
     "org.apache.spark" %% "spark-sql" % sparkVersion, // for simple standalone spark app
+
+    // scio/beam
+    "com.spotify" %% "scio-core" % scioVersion,
+    "com.spotify" %% "scio-test" % scioVersion % Test,
+    "org.apache.beam" % "beam-runners-direct-java" % beamVersion % Runtime,
+    "org.apache.beam" % "beam-runners-google-cloud-dataflow-java" % beamVersion % Runtime,
+    "com.fasterxml.jackson.core" % "jackson-databind" % "2.14.1",
   )
 }
