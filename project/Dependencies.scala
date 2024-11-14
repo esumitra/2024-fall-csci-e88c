@@ -43,5 +43,10 @@ object Dependencies {
     "org.apache.beam" % "beam-runners-direct-java" % beamVersion % Runtime,
     "org.apache.beam" % "beam-runners-google-cloud-dataflow-java" % beamVersion % Runtime,
     "com.fasterxml.jackson.core" % "jackson-databind" % "2.14.1",
+
+    // kafka streams
+    "org.apache.kafka" %% "kafka-streams-scala" % "3.4.0",
+    "com.goyeau" %% "kafka-streams-circe" % "0.6.3",
+
   )
 }
